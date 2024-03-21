@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 import cors from 'cors'; //cross origin resource sharing
 import express from 'express';
-// import studentsRouter from './routes/Students.js';
+import shopsRouter from './routes/Shops.js';
 import dotenv from 'dotenv';
 dotenv.config();
 
@@ -23,7 +23,7 @@ app.use(express.json()) //convert req,res data to json object or json arrays
 const URI = process.env.MONGODB_URI;
 mongoose.connect(URI)
 
-app.use('/api', studentsRouter)
+app.use('/api', shopsRouter)
 
 
 const connection = async () => {
