@@ -1,5 +1,5 @@
 import moment from "moment-timezone";
-import Student from "../models/Shop.js";
+import Shop from "../models/Shop.js";
 import Counter from "../models/Counter.js";
 
 export const getShops = (req, res, next) => { //fetch shop
@@ -26,20 +26,19 @@ export const addShop = async (req,res,next) =>{ //add new shops
             }
           }
       
-        const {name, birthday, gender} = req.body
+        const {name, ownerName} = req.body
 
         const shopId = await generateShopId()
 
         const shop = new Shop ({
             shopId,
             shopName: name,
-            shopBirthday: birthday,
-            shopGender: gender,
-            dataAddedTime: currentDateTime
+            shopOwnerName: ownerName,
+            shopCreatedTime: currentDateTime
         })
 
         await shop.save()
-            res.json({status: "new shop added", shop})
+            res.json({status: "New shop added", shop})
 
     }catch (error) {
 
@@ -53,12 +52,11 @@ export const updateShop = async (req,res,next) =>{ //update shops
     try{  
         let shopId = req.params.id;
 
-        const {name, birthday, gender} = req.body;
+        const {name, ownerName } = req.body;
 
         const updateShop = {
             shopName: name,
-            shopBirthday: birthday,
-            shopGender: gender
+            shopOwnerName: ownerName
         }
 
         await Shop.findByIdAndUpdate(shopId, updateShop)

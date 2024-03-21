@@ -8,12 +8,6 @@ const shopSchema = new Schema({
         unique: true, 
         required: true 
     },
-
-    shopOwnerId: { 
-        type: String, 
-        unique: true, 
-        required: true 
-    },
     
     shopName: {
         type: String,
@@ -25,7 +19,7 @@ const shopSchema = new Schema({
         required: true
     },
 
-    dataAddedTime : { 
+    shopCreatedTime : { 
         type : String,
         required: true 
     }
