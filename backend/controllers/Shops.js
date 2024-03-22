@@ -59,22 +59,22 @@ export const updateShop = async (req,res,next) =>{ //update shops
             shopOwnerName: ownerName
         }
 
-        await Shop.findByIdAndUpdate(shopId, updateShop)
+        await Shop.findOneAndUpdate({ shopId: shopId }, updateShop);
 
-        res.status(200).send({status: "Shop Updated",shop})
+        res.status(200).send({status: "Shop Updated"})
 
     }catch(error) {
 
         console.error('Error adding shop:', error.message);
         res.status(500).send({status: "Error with update shop", error: error.message});
       }
-    }
+    }    
 
 export const deleteShop = async (req,res,next) =>{ //delete shops
 
     let shopId = req.params.id;
 
-    await Shop.findByIdAndDelete(shopId)
+    await Shop.findOneAndDelete({ shopId: shopId })
     .then((shop) => {
         res.status(200).send({status: "Shop Deleted", shop});
     }).catch((error) => {
@@ -86,7 +86,7 @@ export const getShop = async (req,res,next) =>{ //fetch single shops by Id
 
     let shopId = req.params.id;
     
-    await Shop.findById(shopId)
+    await Shop.findOne({ shopId: shopId })
     .then((shop) => {
         res.status(200).json(shop)
     }).catch((error) => {
