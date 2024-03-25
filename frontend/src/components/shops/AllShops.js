@@ -1,10 +1,21 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import toast, { Toaster } from 'react-hot-toast';
 
 const AllShops = () => {
   const [allShops, setShops] = useState([]);
 
+  const handleDelete = async (id) => {
+    toast.promise(
+       axios.delete(`http://localhost:4000/api/deleteshop/${id}`),
+      {
+        loading: 'In Progress...',
+        success: 'Shop Deleted Successfully',
+        error: 'An error occurred while adding the shop',
+      })
+    }
+    
   useEffect(() => {
     const getShops = async () => {
       try {
@@ -20,12 +31,14 @@ const AllShops = () => {
     };
 
     getShops();
-  }, []);
+  }, [handleDelete]);
+
 
   return (
-    <div className="container">
+    <div className="container px-5">
+      
     <div className="mt-5">
-
+    <div><Toaster/></div>
       <Link to="/add">
           <button className="px-4 py-2 font-bold text-white bg-blue-500 rounded-full hover:bg-blue-700">Add Shop</button>
       </Link> 
@@ -37,6 +50,7 @@ const AllShops = () => {
               <th className="p-3 text-lg text-white ">ID</th>
               <th className="p-3 text-lg text-white ">SHOP NAME</th>
               <th className="p-3 text-lg text-white ">SHOP OWNER NAME</th>
+              <th className="p-3 text-lg text-white ">DELETE</th>
             </tr>
           </thead>
           <tbody>
@@ -45,6 +59,9 @@ const AllShops = () => {
                 <td className="p-3">{item.shopId}</td>
                 <td className="p-3">{item.shopName}</td>
                 <td className="p-3">{item.shopOwnerName}</td>
+                <td className="p-3">
+                    <button onClick={() => handleDelete(item.shopId)}>DELETE</button>
+                  </td>
               </tr>
             ))}
           </tbody>

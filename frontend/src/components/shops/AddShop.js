@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import toast, { Toaster } from 'react-hot-toast';
 
-const AddStudent = () => {
+const AddShop = () => {
   const [name, setName] = useState("");
   const [ownerName, setOwnerName] = useState("");
   const [submit, setSubmit] = useState(false);
@@ -44,10 +44,10 @@ const AddStudent = () => {
       setEmptySubmit(false);
       setName("");
       setOwnerName("");
-};
+  }
 
 return (
-    <div className=" container p-10">
+    <div className="container px-5 pt-5">
         <div><Toaster/></div>
       <form onSubmit={submit ? sendData : (e) => e.preventDefault()}>
         <div className="mb-3">
@@ -105,4 +105,4 @@ return (
   );
 };
 
-export default AddStudent;
+export default AddShop;
