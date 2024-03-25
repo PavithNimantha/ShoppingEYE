@@ -20,7 +20,7 @@ export const addShop = async (req,res,next) =>{ //add new shops
 
             try { //creating unique Id
                 const shopCounterDoc = await Counter.findOneAndUpdate({ entity: 'Shop' }, { $inc: { count: 1 } }, { new: true,    upsert: true });
-                return `S${shopCounterDoc.count.toString().padStart(4, '0')}`;
+                return `S${shopCounterDoc.count.toString().padStart(3, '0')}`;
             } catch (error) {
               console.error('Error fetching shop count:', error.message);
             }
@@ -84,6 +84,7 @@ export const addShop = async (req,res,next) =>{ //add new shops
                 return res.status(404).send({ status: "Error with delete shop", error: "Shop not found" });
             }
     
+            +
             res.status(200).send({ status: "Shop Deleted", shop: deletedShop });
     
         } catch (error) {
