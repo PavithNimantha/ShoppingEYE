@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import toast, { Toaster } from 'react-hot-toast';
+import toast from 'react-hot-toast';
 
 const AddShop = () => {
   const [name, setName] = useState("");
@@ -47,8 +47,8 @@ const AddShop = () => {
   }
 
 return (
+ 
     <div className="container px-5 pt-5">
-        <div><Toaster/></div>
       <form onSubmit={submit ? sendData : (e) => e.preventDefault()}>
         <div className="mb-3">
           <label htmlFor="name" className="form-label">
@@ -102,6 +102,7 @@ return (
 
       </form>
     </div>
+  
   );
 };
 
