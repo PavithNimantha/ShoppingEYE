@@ -58,7 +58,6 @@ export const addShop = async (req,res,next) =>{ //add new shops
             };
     
             const updatedShop = await Shop.findOneAndUpdate({ shopId: shopId }, updateShop);
-    
             if (!updatedShop) {
                 // If updatedShop is null
                 return res.status(404).send({ status: "Error with update shop", error: "Shop not found" });
