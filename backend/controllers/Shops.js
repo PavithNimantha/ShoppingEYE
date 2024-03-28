@@ -43,7 +43,6 @@ export const addShop = async (req,res,next) =>{ //add new shops
     }catch (error) {
 
         console.error('Error adding shop:', error.message);
-
         res.status(500).json({ status: "Internal server error", error: error.message });
       }
     }
