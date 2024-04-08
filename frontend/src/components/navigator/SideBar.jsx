@@ -1,4 +1,4 @@
-import floor from '../../images/floor.jpg'
+import floor from '../../assets/images/floor.jpg'
 import { Link } from 'react-router-dom'
 
 const SideBar = () => {
