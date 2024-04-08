@@ -5,5 +5,3 @@ const ThirdFloor = () => {
     <div>ThirdFloor</div>
   )
 }
-
-export default ThirdFloor
