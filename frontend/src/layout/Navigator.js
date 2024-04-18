@@ -3,10 +3,12 @@ import SideBar from "../components/navigator/SideBar";
 
 const Layout = () => {
   return (
-    <>
+    <div className="flex">
       <SideBar />
-      <Outlet />
-    </>
+      <div className="flex-grow">
+        <Outlet />
+      </div>
+    </div>
   );
 };
 

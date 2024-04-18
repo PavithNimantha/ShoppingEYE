@@ -3,7 +3,10 @@ import { Link } from 'react-router-dom'
 
 const SideBar = () => {
   return (
-    <aside className='flex '>
+
+    <div className=''>
+
+    <aside className=''>
     <p className='p-5'>
 
         <Link to={'./'}> 
@@ -24,7 +27,7 @@ const SideBar = () => {
 
     <p className='p-5'>
 
-    <Link to={'secondfloor'}> 
+        <Link to={'secondfloor'}> 
         <p className=''>2nd Floor</p>
         <img src={floor} height={100} width={100}></img>
         </Link>
@@ -41,6 +44,7 @@ const SideBar = () => {
     </p>
 
 </aside>
+    </div>
   )
 }
 
