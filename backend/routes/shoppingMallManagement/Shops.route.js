@@ -1,5 +1,5 @@
 //creating routes
-import { getShops, getShop, addShop, updateShop, deleteShop } from '../controllers/Shops.js';
+import { getShops, getShop, addShop, updateShop, deleteShop } from '../../controllers/shoppingMallManagement/Shops.controller.js';
 import { Router } from "express";
 
 const router = Router();

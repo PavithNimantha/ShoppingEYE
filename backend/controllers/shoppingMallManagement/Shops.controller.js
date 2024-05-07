@@ -1,6 +1,6 @@
 import moment from "moment-timezone";
-import Shop from "../models/Shop.js";
-import Counter from "../models/Counter.js";
+import Shop from "../../models/shoppingMallManagement/Shops.model.js";
+import Counter from "../../models/Counter.js";
 
 export const getShops = (req, res, next) => { //fetch shop
         Shop.find()

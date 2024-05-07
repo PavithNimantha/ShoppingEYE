@@ -1,7 +1,9 @@
 import mongoose from "mongoose";
 import cors from 'cors'; //cross origin resource sharing
 import express from 'express';
-import shopsRouter from './routes/Shops.js';
+import shopsRouter from './routes/shoppingMallManagement/Shops.route.js';
+import budgetRouter from './routes/financialManagement/Budget.route.js';
+import expensesRouter from './routes/financialManagement/Expenses.route.js';
 import dotenv from 'dotenv';
 dotenv.config();
 
@@ -24,6 +26,8 @@ const URI = process.env.MONGODB_URI;
 mongoose.connect(URI)
 
 app.use('/api', shopsRouter)
+app.use('/api', budgetRouter)
+app.use('/api', expensesRouter)
 
 
 const connection = async () => {

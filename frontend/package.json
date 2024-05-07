@@ -11,9 +11,21 @@
   },
   "dependencies": {
     "axios": "^1.6.8",
+    
+    "jspdf": "^2.5.1",
+    "jspdf-autotable": "^3.8.2",
     "react": "^18.2.0",
+    
+    "react-datepicker": "^6.9.0",
     "react-dom": "^18.2.0",
-    "react-hot-toast": "^2.4.1"
+    "react-hot-toast": "^2.4.1",
+    "react-router-dom": "^6.23.0",
+    "react-scripts": "^5.0.1",
+    "react-time-picker": "^7.0.0",
+    "short-unique-id": "^5.2.0",
+    "shortid": "^2.2.16",
+    "sweetalert2": "^11.10.8",
+    "with-router": "^1.0.1"
   },
   "devDependencies": {
     "@types/react": "^18.2.66",
