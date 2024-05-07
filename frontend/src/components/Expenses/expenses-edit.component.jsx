@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Swal from "sweetalert2";
-import { useHistory } from 'react-router';
+// import { useHistory } from 'react-router';
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css"
 
@@ -105,7 +105,7 @@ export default function EditExpenses() {
         if (errors.length > 0) {
             showErrorAlert(errors.join('<br>'));
         } else {
-            axios.put(`http://localhost:5000/expenses/${id}`, expenses)
+            axios.put(`http://localhost:4000/api/expenses/${id}`, expenses)
                 .then(res => {
                     console.log(res.status);
 

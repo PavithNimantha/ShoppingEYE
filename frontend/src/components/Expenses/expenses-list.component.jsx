@@ -14,21 +14,21 @@ export default function ExpensesList() {
     const [APIData, setAPIData] = useState([]);
 
     useEffect(() => {
-        axios.get(`http://localhost:5000/expenses/`)
+        axios.get(`http://localhost:4000/api/expenses/`)
             .then((response) => {
                 setAPIData(response.data);
             })
     }, [])
 
     const getData = () => {
-        axios.get(`http://localhost:5000/expenses/`)
+        axios.get(`http://localhost:4000/api/expenses/`)
             .then((getData) => {
                 setAPIData(getData.data);
             })
     }
 
     const onDelete = (id) => {
-        axios.delete(`http://localhost:5000/expenses/${id}`).then(response => {
+        axios.delete(`http://localhost:4000/api/expenses/${id}`).then(response => {
             console.log(response.status)
 
 
@@ -121,7 +121,6 @@ export default function ExpensesList() {
         };
         doc.setFontSize(20);
         doc.text(title, marginLeft, 40);
-        require('jspdf-autotable');
         doc.autoTable(content);
         doc.save("Expenses Report.pdf")
     }
@@ -163,7 +162,7 @@ export default function ExpensesList() {
                             </div>
                             <div className='relative grid content-start grid-cols-1 gap-4 overflow-x-auto shadow-md sm:rounded-lg'>
                                 <table className='w-full text-lg text-left text-gray-500 dark:text-gray-400'>
-                                    <thead className='p-5 text-s text-gray-700 uppercase border bg-gray-50 dark:bg-gray-700 dark:text-gray-400'>
+                                    <thead className='p-5 text-gray-700 uppercase border text-s bg-gray-50 dark:bg-gray-700 dark:text-gray-400'>
                                         <tr>
                                             <th className="p-2 border-black tbhead ">Shop ID</th>
                                             <th className="p-2 tbhead">Shop Name</th>

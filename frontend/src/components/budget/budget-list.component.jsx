@@ -12,7 +12,7 @@ export default function PackageList() {
 
 
     useEffect(() => {
-        axios.get(`http://localhost:5000/budget/`)
+        axios.get(`http://localhost:4000/api/budget/`)
             .then((response) => {
                 setAPIData(response.data);
             })
@@ -20,14 +20,14 @@ export default function PackageList() {
 
 
     const getData = () => {
-        axios.get(`http://localhost:5000/budget/`)
+        axios.get(`http://localhost:4000/api/budget/`)
             .then((getData) => {
                 setAPIData(getData.data);
             })
     }
 
     const onDelete = (id) => {
-        axios.delete(`http://localhost:5000/budget/${id}`).then(response => {
+        axios.delete(`http://localhost:4000/api/budget/${id}`).then(response => {
             console.log(response.status)
             if (response.status === 200) {
                 Swal.fire({
@@ -95,10 +95,10 @@ export default function PackageList() {
         const orientation = "portrait";
         const marginLeft = 40;
         const doc = new jsPDF(orientation, unit, size);
-
+    
         const title = "Budget List Report ";
         const headers = [["Budget Name", "Department", "Cost"]];
-
+    
         const pack = APIData.map(
             data => [
                 data.budgetName,
@@ -106,7 +106,7 @@ export default function PackageList() {
                 data.cost
             ]
         );
-
+    
         let content = {
             startY: 50,
             head: headers,
@@ -114,7 +114,6 @@ export default function PackageList() {
         };
         doc.setFontSize(20);
         doc.text(title, marginLeft, 40);
-        require('jspdf-autotable');
         doc.autoTable(content);
         doc.save("Budget-Report.pdf")
     }
@@ -161,7 +160,7 @@ export default function PackageList() {
 
                             <div className='relative grid content-start grid-cols-1 gap-4 overflow-x-auto shadow-md sm:rounded-lg'>
                                 <table className='w-full text-lg text-left text-gray-500 dark:text-gray-400'>
-                                    <thead className='p-5  text-gray-700 uppercase border bg-gray-50 dark:bg-gray-700 dark:text-gray-400'>
+                                    <thead className='p-5 text-gray-700 uppercase border bg-gray-50 dark:bg-gray-700 dark:text-gray-400'>
                                         <tr className='text-center'>
                                             <th className="p-2 border-black tbhead ">Budget Name</th>
                                             <th className="p-2 tbhead">Department</th>

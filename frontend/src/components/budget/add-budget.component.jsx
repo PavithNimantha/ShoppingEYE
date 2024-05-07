@@ -59,7 +59,7 @@ export default function AddPackage() {
             })
         }
         else {
-            axios.post('http://localhost:5000/budget/add',
+            axios.post('http://localhost:4000/api/budget/add',
                 budget,
             ).then(res => {
                 console.log(res);

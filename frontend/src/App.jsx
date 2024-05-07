@@ -1,13 +1,22 @@
-import AddShop from './components/shops/AddShop';
-import AllShops from './components/shops/AllShops';
+import React from 'react';
+
+import AddShop from './components/shops/add-shop.component';
+import AllShops from './components/shops/all-shops.component';
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Layout from './layout/Layout';
 import Navigator from './layout/Navigator';
-import GroundFloor from './components/navigator/GroundFloor';
-import FirstFloor from './components/navigator/FirstFloor';
-import SecondFloor from './components/navigator/SecondFloor';
-import ThirdFloor from './components/navigator/ThirdFloor';
-import SideBar from './components/navigator/SideBar';
+import GroundFloor from './components/navigator/ground-floor.component';
+import FirstFloor from './components/navigator/first-floor.component';
+import SecondFloor from './components/navigator/second-floor.component';
+import ThirdFloor from './components/navigator/third-floor.component';
+import SideBar from './components/navigator/sideBar.component';
+import AddBudget from './components/budget/add-budget.component';
+import BudgetList from './components/budget/budget-list.component';
+import EditBudget from './components/budget/budget-edit.component';
+import ExpensesList from './components/Expenses/expenses-list.component';
+import AddExpense from './components/Expenses/add-expenses.component';
+import EditExpenses from './components/Expenses/expenses-edit.component';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 const router = createBrowserRouter([
@@ -52,8 +61,33 @@ const router = createBrowserRouter([
             element: <ThirdFloor />,
           },
           
-      ]
-    }
+       ]
+      },
+
+      {
+        path: "addBudget",
+        element: <AddBudget />,
+      },
+      {
+        path: "addExpenses",
+        element: <AddExpense />,
+      },
+      {
+        path: "budget",
+        element: <BudgetList />,
+      },
+      {
+        path: "expenses",
+        element: <ExpensesList />,
+      },
+      {
+        path: "editExpenses",
+        element: <EditExpenses />,
+      },
+      {
+        path: "editBudget",
+        element: <EditBudget />,
+      },
 
 
 

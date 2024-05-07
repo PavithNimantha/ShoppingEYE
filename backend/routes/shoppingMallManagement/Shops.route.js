@@ -4,7 +4,7 @@ import { Router } from "express";
 
 const router = Router();
 
-router.get('/shops',getShops)
+router.get('/allshops',getShops)
 
 router.get('/shop/:id', getShop)
 

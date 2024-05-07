@@ -1,12 +1,14 @@
 import { Outlet } from "react-router-dom";
-import SideBar from "../components/navigator/SideBar";
+import SideBar from "../components/navigator/sideBar.component";
 
 const Layout = () => {
   return (
-    <>
+    <div className="flex">
       <SideBar />
-      <Outlet />
-    </>
+      <div className="flex-grow">
+        <Outlet />
+      </div>
+    </div>
   );
 };
 

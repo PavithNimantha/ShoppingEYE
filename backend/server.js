@@ -25,9 +25,9 @@ app.use(express.json()) //convert req,res data to json object or json arrays
 const URI = process.env.MONGODB_URI;
 mongoose.connect(URI)
 
-app.use('/api', shopsRouter)
-app.use('/api', budgetRouter)
-app.use('/api', expensesRouter)
+app.use('/api/shops', shopsRouter)
+app.use('/api/budget', budgetRouter)
+app.use('/api/expenses', expensesRouter)
 
 
 const connection = async () => {

@@ -3,7 +3,7 @@ import axios from 'axios';
 import Swal from "sweetalert2";
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css"
-const shortid = require('shortid');
+import shortid from 'shortid';
 
 export default function AddExpense() {
     const [ShopId, setShopId] = useState('');
@@ -53,7 +53,7 @@ export default function AddExpense() {
         if (errors.length > 0) {
             showError(errors.join('<br>'));
         } else {
-            axios.post('http://localhost:5000/expenses/add', expenses)
+            axios.post('http://localhost:4000/api/expenses/add', expenses)
                 .then(res => {
                     console.log(res);
                     if (res.status === 201) {
