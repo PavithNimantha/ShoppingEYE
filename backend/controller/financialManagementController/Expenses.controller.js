@@ -1,6 +1,5 @@
-const Expenses = require('../../model/financialManagement/Expenses.model');
+import Expenses from '../../model/financialManagement/Expenses.model.js';
 
-// Create Expenses 
 const createExpenses = async (req, res) => {
     try {
         const { shopId, shopName, rentAmount, waterBill, currentBill, salaryExpense, date } = req.body;
@@ -36,7 +35,7 @@ const getExpensesById = async (req, res) => {
     try {
         const expenses = await Expenses.findById(req.params.id);
         if (!expenses) {
-            return res.status(404).json({ error: "expenses not found" });
+            return res.status(404).json({ error: "Expenses not found" });
         }
         res.json(expenses);
     } catch (error) {
@@ -45,7 +44,6 @@ const getExpensesById = async (req, res) => {
     }
 };
 
-//get all expenses records
 const getExpenses = async (req, res) => {
     try {
         const expenses = await Expenses.find();
@@ -54,6 +52,7 @@ const getExpenses = async (req, res) => {
         res.status(500).send("Server Error : " + expenses);
     }
 }
+
 const updateExpenses = async (req, res) => {
     try {
         const existingExpenses = await Expenses.findByIdAndUpdate(req.params.id, req.body, { new: true });
@@ -84,12 +83,4 @@ const deleteExpenses = async (req, res) => {
     }
 };
 
-
-//export created functions 
-module.exports = {
-    createExpenses,
-    getExpensesById,
-    deleteExpenses,
-    getExpenses,
-    updateExpenses
-};
+export { createExpenses, getExpensesById, deleteExpenses, getExpenses, updateExpenses };

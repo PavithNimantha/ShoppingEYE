@@ -1,5 +1,5 @@
-const mongoose = require("mongoose");
-const Schema = mongoose.Schema;
+import mongoose from "mongoose";
+const { Schema, model } = mongoose;
 
 const expensesSchema = new Schema({
     shopId: { type: String, required: false },
@@ -11,6 +11,8 @@ const expensesSchema = new Schema({
     date: { type: Date, required: true }
 }, {
     timestamps: true,
-})
+});
 
-module.exports = Expenses = mongoose.model("Expenses", expensesSchema);
+const Expenses = model("Expenses", expensesSchema);
+
+export default Expenses;

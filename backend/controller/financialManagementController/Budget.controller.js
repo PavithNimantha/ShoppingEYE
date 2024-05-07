@@ -1,7 +1,4 @@
-const Budget = require('../../model/financialManagement/Budget.model');
-
-
-// Create Budget 
+import Budget from '../../model/financialManagement/Budget.model.js';
 
 const createBudget = async (req, res) => {
     try {
@@ -43,8 +40,6 @@ const getBudgetById = async (req, res) => {
     }
 };
 
-
-//get all Event records
 const getBudget = async (req, res) => {
     try {
         const budget = await Budget.find();
@@ -53,20 +48,6 @@ const getBudget = async (req, res) => {
         res.status(500).send("Server Error : " + budget);
     }
 }
-
-//Update Exsisting Event record
-// const updateBudget = async (req, res) => {
-//     Budget.findByIdAndUpdate(req.params.id).
-//         then((exsistingBudget) => {
-//             exsistingBudget.budgetName = req.body.budgetName;
-//             exsistingBudget.department = req.body.department;
-//             exsistingBudget.cost = req.body.cost;
-//             exsistingBudget.save()
-//                 .then((updatedBudget) => res.json(updatedBudget))
-//                 .catch((error) => res.status(400).json("Error: " + error));
-//         })
-//         .catch((error) => res.status(400).json("Error:" + error));
-// };
 
 const updateBudget = async (req, res) => {
     try {
@@ -83,14 +64,6 @@ const updateBudget = async (req, res) => {
     }
 };
 
-// const deleteBudget = async (req, res) => {
-//     // console.log(req.params.id);
-//     Budget.findByIdAndDelete(req.params.id)
-//         .then(() => res.json('Event has been Deleted'))
-//         .catch(err => res.status(400).json('Error : ' + err));
-// }
-
-
 const deleteBudget = async (req, res) => {
     try {
         const deletedBudget = await Budget.findByIdAndDelete(req.params.id);
@@ -106,12 +79,4 @@ const deleteBudget = async (req, res) => {
     }
 };
 
-
-//export created functions 
-module.exports = {
-    createBudget,
-    getBudgetById,
-    deleteBudget,
-    getBudget,
-    updateBudget
-};
+export { createBudget, getBudgetById, deleteBudget, getBudget, updateBudget };

@@ -1,30 +1,30 @@
-const express = require("express");
+import express from "express";
 const router = express.Router();
 
-// Import controllers for handling budget-related operations
-const {
+// Import controllers for handling expenses-related operations
+import {
     createExpenses,
     getExpensesById,
     deleteExpenses,
     getExpenses,
     updateExpenses
-} = require("../../controller/financialManagementController/Expenses.controller");
+} from "../../controller/financialManagementController/Expenses.controller.js";
 
-// Routes for managing budgets
+// Routes for managing expenses
 
-// Route for creating a new budget
+// Route for creating new expenses
 router.post("/add", createExpenses);
 
-// Route for getting a budget by its ID
+// Route for getting expenses by ID
 router.get("/:id", getExpensesById);
 
-// Route for deleting a budget by its ID
+// Route for deleting expenses by ID
 router.delete("/:id", deleteExpenses);
 
-// Route for getting all budgets
+// Route for getting all expenses
 router.get("/", getExpenses);
 
-// Route for updating a budget by its ID
+// Route for updating expenses by ID
 router.put("/:id", updateExpenses);
 
-module.exports = router;
+export default router;

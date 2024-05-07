@@ -1,14 +1,14 @@
-const express = require("express");
+import express from "express";
 const router = express.Router();
 
 // Import controllers for handling budget-related operations
-const {
+import {
     createBudget,
     getBudgetById,
     deleteBudget,
     getBudget,
     updateBudget
-} = require("../../controller/financialManagementController/Budget.controller");
+} from "../../controller/financialManagementController/Budget.controller.js";
 
 // Routes for managing budgets
 
@@ -27,4 +27,4 @@ router.get("/", getBudget);
 // Route for updating a budget by its ID
 router.put("/:id", updateBudget);
 
-module.exports = router;
+export default router;
