@@ -9,10 +9,10 @@ import GroundFloor from './components/navigator/ground-floor.component';
 import FirstFloor from './components/navigator/first-floor.component';
 import SecondFloor from './components/navigator/second-floor.component';
 import ThirdFloor from './components/navigator/third-floor.component';
-import SideBar from './components/navigator/sideBar.component';
 import AddBudget from './components/budget/add-budget.component';
 import BudgetList from './components/budget/budget-list.component';
 import EditBudget from './components/budget/budget-edit.component';
+import EditShop from './components/shops/shop-edit.component';
 import ExpensesList from './components/Expenses/expenses-list.component';
 import AddExpense from './components/Expenses/add-expenses.component';
 import EditExpenses from './components/Expenses/expenses-edit.component';
@@ -87,6 +87,10 @@ const router = createBrowserRouter([
       {
         path: "editBudget",
         element: <EditBudget />,
+      },
+      {
+        path: "editShop",
+        element: <EditShop />,
       },
 
 
