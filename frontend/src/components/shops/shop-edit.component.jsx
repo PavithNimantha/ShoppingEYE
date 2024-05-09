@@ -3,11 +3,19 @@ import axios from 'axios';
 import "react-datepicker/dist/react-datepicker.css"
 
 export default function EditPackage() {
+    const [shopId, setshopId] = useState("");
     const [name, setName] = useState("");
     const [ownerName, setOwnerName] = useState("");
     const [submit, setSubmit] = useState(false);
     const [emptySubmit, setEmptySubmit] = useState(false);
 
+    useEffect(() => {
+      console.log("View package is" + localStorage.getItem('shopId'));
+      setshopId(localStorage.getItem('shopId'))
+      setName(localStorage.getItem('name'))
+      setOwnerName(localStorage.getItem('ownerName'))
+      console.log("View package id" + setshopId(localStorage.getItem('shopId')))
+  }, [])
 
     const handleInputChange = (e) => { //set values to state variables
         const { name, value } = e.target;
@@ -18,6 +26,7 @@ export default function EditPackage() {
           setOwnerName(value);
         }
       };
+    
     
       useEffect(() => {
         setSubmit(name.length > 0 && ownerName.length > 0);
@@ -31,8 +40,7 @@ export default function EditPackage() {
         e.preventDefault();
       
         // Assuming you have an ID for the shop to be updated
-        const shopId = '123'; // Replace '123' with the actual ID of the shop
-      
+        const shopId = match.params.id; 
         const updatedShop = {
           name,
           ownerName,

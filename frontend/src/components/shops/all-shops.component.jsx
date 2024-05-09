@@ -185,7 +185,7 @@ export default function PackageList() {
                                                                 <div class="flex justify-center">
                                                                     <div class="">
 
-                                                                        <Link to={`/editShop/${data.shopId}`}><button className='inline-flex items-center px-4 py-2 ml-1 text-sm font-medium text-white duration-100 bg-indigo-500 rounded-md hover:bg-blue-200' onClick={() => setData(data)}>
+                                                                        <Link to='/editShop'><button className='inline-flex items-center px-4 py-2 ml-1 text-sm font-medium text-white duration-100 bg-indigo-500 rounded-md hover:bg-blue-200' onClick={() => setData(data)}>
                                                                             <div class=" grid grid-cols-2 gap-1 hover:text-black duration-100">
                                                                                 <div class="">
                                                                                     <svg class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -232,7 +232,7 @@ export default function PackageList() {
                                                         <td className='px-6 py-4'>
                                                             <div class="flex justify-center">
                                                                 <div class="">
-                                                                    <Link to={`/editShop/${data.shopId}`}><button className='inline-flex items-center px-4 py-2 ml-1 text-sm font-medium text-white duration-100 bg-indigo-500 rounded-md hover:bg-blue-200' onClick={() => setData(data)}>
+                                                                    <Link to='/editShop'><button className='inline-flex items-center px-4 py-2 ml-1 text-sm font-medium text-white duration-100 bg-indigo-500 rounded-md hover:bg-blue-200' onClick={() => setData(data)}>
                                                                         <div class=" grid grid-cols-2 gap-1 hover:text-black duration-100">
                                                                             <div class="">
                                                                                 <svg class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
