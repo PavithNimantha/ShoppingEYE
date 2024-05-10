@@ -1,20 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import toast from 'react-hot-toast';
 import "react-datepicker/dist/react-datepicker.css"
 
 export default function EditPackage() {
-    const [shopId, setshopId] = useState("");
+    const [shopId, setshopId] = useState(null);
     const [name, setName] = useState("");
     const [ownerName, setOwnerName] = useState("");
     const [submit, setSubmit] = useState(false);
     const [emptySubmit, setEmptySubmit] = useState(false);
 
     useEffect(() => {
-      console.log("View package is" + localStorage.getItem('shopId'));
-      setshopId(localStorage.getItem('shopId'))
-      setName(localStorage.getItem('name'))
-      setOwnerName(localStorage.getItem('ownerName'))
-      console.log("View package id" + setshopId(localStorage.getItem('shopId')))
+      console.log("User ID is" + localStorage.getItem('Id'));
+      setshopId(localStorage.getItem('Id'))
+      setName(localStorage.getItem('shopName'))
+      setOwnerName(localStorage.getItem('shopOwnerName'))
   }, [])
 
     const handleInputChange = (e) => { //set values to state variables
@@ -40,7 +40,6 @@ export default function EditPackage() {
         e.preventDefault();
       
         // Assuming you have an ID for the shop to be updated
-        const shopId = match.params.id; 
         const updatedShop = {
           name,
           ownerName,
@@ -54,16 +53,9 @@ export default function EditPackage() {
             error: 'An error occurred while updating the shop',
           }
         );
-      
-        setEmptySubmit(false);
-        setName("");
-        setOwnerName("");
+        window.location = '/';
       };
       
-
-    const goBack = () => {
-        window.location = "/shop"
-    }
 
     return (
         <div className="flex flex-col px-5 py-32 pt-2 scroll-m-1 scroll-smooth ">
