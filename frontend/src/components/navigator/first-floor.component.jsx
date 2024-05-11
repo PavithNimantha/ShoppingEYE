@@ -10,12 +10,20 @@ const FirstFloor = () => {
   width=""
   height=""
   image={firstfloor}
-  pitch={10}
+  pitch={1}
   yaw={180}
   hfov={110}
   autoLoad
   showZoomCtrl={false}
 >
+    <Pannellum.Hotspot
+        type="info"
+        pitch={11}
+        yaw={-167}
+        text="Info Hotspot Text 3"
+        URL="https://github.com/farminf/pannellum-react"
+        />
+        
 </Pannellum>
   );
 };
